@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Data | Buy Data & Airtime</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0fdf4;
+      color: #166534;
+    }
+    header {
+      background: linear-gradient(135deg, #16a34a, #14532d);
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 10px; font-size: 32px; }
+    main {
+      max-width: 480px;
+      margin: 25px auto;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px #00000010;
+    }
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input { border: 1px solid #bbf7d0; }
+    button {
+      background: #16a34a;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+    #result { overflow-wrap: anywhere; }
+    footer { text-align: center; padding: 20px; color: #166534; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ELITE DATA</h1>
+    <p>Sayen Data da Airtime cikin sauƙi</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Barka da zuwa Elite Data!</h2>
+      <p>Platform ɗinka na data da airtime.</p>
+      <h3>Gwada haɗin website</h3>
+      <button onclick="checkServer()">Duba Server</button>
+      <p id="result">Ana jiran gwaji...</p>
+    </div>
+  </main>
+
+  <footer>© 2026 Elite Data</footer>
+
+  <script>
+    async function checkServer() {
+      const result = document.getElementById('result');
+      result.textContent = 'Ana dubawa...';
+      try {
+        const response = await fetch('/api/health');
+        const data = await response.json();
+        result.textContent = data.ok
+          ? 'An haɗa! Elite Data server yana aiki.'
+          : 'An samu matsala.';
+      } catch (error) {
+        result.textContent = 'Ba a iya haɗawa da server ba.';
+      }
+    }
+  </script>
+</body>
+</html>
