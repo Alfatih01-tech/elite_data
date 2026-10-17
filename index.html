@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ha">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Elite Data — Smart payments</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">E</span><span>ELITE <b>DATA</b><small>Smart. Fast. Reliable.</small></span></a>
+  <button id="authButton" class="btn btn-light">Sign in</button>
+</header>
+<main class="container">
+  <section class="welcome"><div><p class="eyebrow">ELITE DATA WALLET</p><h1 id="greeting">Good morning! 👋</h1><p class="muted">Sayi data da airtime cikin sauƙi.</p></div><span class="secure">● Secure demo</span></section>
+  <section class="balance-card">
+    <div><p>Available Balance</p><h2 id="balance">₦0.00</h2><small id="walletNote">Shiga account don amfani da wallet</small></div>
+    <button id="fundButton" class="btn btn-white">Fund Wallet +</button>
+  </section>
+  <section class="promo"><div class="promo-icon">⚡</div><div><span class="eyebrow">WELCOME TO</span><h2>Elite Data</h2><p>Data, airtime and payments — all in one place.</p></div><span class="promo-orb">ED</span></section>
+  <section class="section-head"><div><h2>Bills & Payments</h2><p class="muted">Zaɓi sabis ɗin da kake buƙata</p></div></section>
+  <section class="service-grid">
+    <button class="service active" data-service="Data"><span class="service-icon purple">◉</span><b>Data</b><small>Buy data</small></button>
+    <button class="service" data-service="Airtime"><span class="service-icon violet">▣</span><b>Airtime</b><small>Recharge line</small></button>
+    <button class="service" data-service="History"><span class="service-icon pink">↻</span><b>Transactions</b><small>View history</small></button>
+    <button class="service" data-service="Account"><span class="service-icon green">♙</span><b>My Account</b><small>Profile & login</small></button>
+  </section>
+  <section id="purchasePanel" class="panel">
+    <div class="panel-heading"><div><span class="eyebrow">QUICK PURCHASE</span><h2 id="purchaseTitle">Buy Data</h2></div><span class="panel-symbol">↗</span></div>
+    <form id="purchaseForm">
+      <label>Network provider</label>
+      <div class="network-grid">
+        <label class="network-choice"><input type="radio" name="network" value="MTN" checked><span class="network-logo mtn">MTN</span><b>MTN</b></label>
+        <label class="network-choice"><input type="radio" name="network" value="Airtel"><span class="network-logo airtel">A</span><b>Airtel</b></label>
+        <label class="network-choice"><input type="radio" name="network" value="Glo"><span class="network-logo glo">Glo</span><b>Glo</b></label>
+        <label class="network-choice"><input type="radio" name="network" value="9mobile"><span class="network-logo nine">9</span><b>9mobile</b></label>
+      </div>
+      <label for="phone">Phone number</label><input id="phone" inputmode="numeric" maxlength="11" placeholder="08012345678" required>
+      <div id="planWrap"><label for="plan">Data plan</label><select id="plan" required><option value="500MB — Demo">500MB — Demo</option><option value="1GB — Demo">1GB — Demo</option><option value="2GB — Demo">2GB — Demo</option><option value="5GB — Demo">5GB — Demo</option></select></div>
+      <label for="amount">Amount (₦)</label><input id="amount" type="number" min="1" max="50000" placeholder="500" required>
+      <button class="btn btn-primary full" type="submit" id="buyButton">Continue</button>
+      <p class="fineprint">Demo mode: babu ainihin data ko airtime da za a aika.</p>
+    </form>
+  </section>
+  <section id="historyPanel" class="panel hidden"><div class="panel-heading"><h2>Transaction History</h2></div><div id="historyList" class="history-list"><p class="muted">Shiga account don ganin tarihin transactions.</p></div></section>
+  <footer>© <span id="year"></span> Elite Data · Built for Nigeria <p>Demo version — connect verified payment and VTU APIs before going live.</p></footer>
+</main>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button id="closeModal" class="close" aria-label="Close">×</button><span class="eyebrow">ELITE DATA</span><h2 id="modalTitle">Sign in</h2><p id="modalDescription" class="muted">Shiga account ɗinka.</p><form id="authForm"><div id="nameWrap" class="hidden"><label for="name">Full name</label><input id="name" autocomplete="name"></div><label for="email">Email address</label><input id="email" type="email" autocomplete="email" required><label for="password">Password (a kalla haruffa 8)</label><input id="password" type="password" minlength="8" autocomplete="current-password" required><button id="authSubmit" class="btn btn-primary full">Sign in</button></form><button id="toggleAuth" class="text-button">Sabon account? Yi rajista</button><p id="modalMessage" class="message"></p></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/app.js"></script>
+</body></html>
